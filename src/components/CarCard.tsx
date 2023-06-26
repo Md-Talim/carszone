@@ -4,8 +4,9 @@ import { calculateCarRent } from '@/utils';
 import Image from 'next/image';
 import Button from './Button';
 import { useState } from 'react';
+import CarDetails from './CarDetails';
 
-interface Car {
+export interface Car {
   city_mpg: number;
   class: string;
   combination_mpg: number;
@@ -91,6 +92,8 @@ const CarCard = ({ car }: Props) => {
           />
         </div>
       </div>
+
+      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car} />
     </div>
   );
 };
