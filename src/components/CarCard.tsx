@@ -48,6 +48,16 @@ const CarCard = ({ car }: Props) => {
         </span>
       </p>
 
+      <div className="relative w-full h-40 my-3 object-contain">
+        <Image
+          src="/hero.png"
+          alt={model}
+          className="object-contain"
+          fill
+          priority
+        />
+      </div>
+
       <div className="relative flex w-full mt-2">
         <div className="flex group-hover:invisible w-full justify-between text-grey">
           <div className="flex flex-col justify-center items-center gap-2">
