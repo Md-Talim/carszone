@@ -34,7 +34,7 @@ const CarCard = ({ car }: Props) => {
   return (
     <div className="car-card group">
       <div className="car-card__content">
-        <h2 className="card-card__content-title">
+        <h2 className="car-card__content-title">
           {make} {model}
         </h2>
       </div>
