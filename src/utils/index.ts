@@ -1,11 +1,21 @@
-export async function fetchCars() {
+export interface Filters {
+  fuel?: string;
+  limit?: number;
+  manufacturer?: string;
+  model?: string;
+  year?: number;
+}
+
+export async function fetchCars(filters: Filters) {
+  const { manufacturer, year, model, limit, fuel } = filters;
+
   const headers = {
     'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPID_API_KEY || '',
     'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com',
   };
 
   const response = await fetch(
-    'https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla',
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=${model}&make=${manufacturer}&year=${year}&fuel_type=${fuel}&limit=${limit}`,
     { headers: headers },
   );
 
