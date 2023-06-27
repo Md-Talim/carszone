@@ -43,11 +43,12 @@ const CarDetails = ({ isOpen, closeModal, car }: Props) => {
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="absolute top-3 right-3 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
+                    className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
                   >
                     <Image
                       src="/close.svg"
-                      fill
+                      width={20}
+                      height={20}
                       className="object-contain"
                       alt="close icon"
                     />
