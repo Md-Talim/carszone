@@ -2,6 +2,7 @@
 
 import { Listbox, Transition } from '@headlessui/react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Fragment, useState } from 'react';
 
 interface Option {
@@ -15,11 +16,33 @@ interface Props {
 }
 
 const CustomFilter = ({ title, options }: Props) => {
+  const router = useRouter();
   const [selected, setSelected] = useState(options[0]);
+
+  const handleSearchParams = (e: Option) => {
+    // Get the current URL search params
+    const searchParams = new URLSearchParams(window.location.search);
+
+    // Set the specified search parameter to the given value
+    searchParams.set(title, e.value.toLowerCase());
+
+    // Set the specified search parameter to the given value
+    const newPathname = `${
+      window.location.pathname
+    }?${searchParams.toString()}`;
+
+    router.push(newPathname);
+  };
 
   return (
     <div className="w-fit">
-      <Listbox value={selected} onChange={(e) => setSelected(e)}>
+      <Listbox
+        value={selected}
+        onChange={(e) => {
+          setSelected(e);
+          handleSearchParams(e);
+        }}
+      >
         <div className="relative w-fit z-10">
           <Listbox.Button className="custom-filter__btn">
             <span>{selected.title}</span>
