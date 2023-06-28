@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Navbar from './Navbar';
 import SearchBar from './SearchBar';
 import SearchManufacturer from './SearchManufacturer';
+import ShowMore from './ShowMore';
 
 export {
   Button,
@@ -16,4 +17,5 @@ export {
   Navbar,
   SearchBar,
   SearchManufacturer,
+  ShowMore,
 };
